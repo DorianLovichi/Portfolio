@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styless.scss" />
+
+</html>  </head>
+  <body>
+    <header>
+          <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+          <div class="content">
+            <div class="content__container">
+              <p class="content__container__text">
+                Hello
+              </p>
+              
+              <ul class="content__container__list">
+                <li class="content__container__list__item">world !</li>
+                <li class="content__container__list__item">you !</li>
+                <li class="content__container__list__item">users !</li>
+                <li class="content__container__list__item">everyone !</li>
+              </ul>
+            </div>
+          </div>
+          <nav class="navbar">
+            <ul class="menu">
+              <li><a href="#ancre1">Accueil</a></li>
+              <li><a href="#ancre2">Projets graphiques</a></li>
+              <li><a href="#ancre6">Projets de développements</a></li>
+              <li><a href="#ancre3">Compétences</a></li>
+              <li><a href="#ancre4">Contact</a></li>
+              <li><a href="#ancre5">Réseaux</a></li>
+
+            </ul>
+            <div class="burger-icon">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+          </nav>
+          <script>
+            const navbar = document.querySelector('.navbar');
+            const burgerIcon = document.querySelector('.burger-icon');
+
+            burgerIcon.addEventListener('click', () => {
+            navbar.classList.toggle('is-expanded');
+});
+
+          </script>
+    </header>
+    <div id="ancre1"></div>
+    
+    
+    <div class="container">
+      <div class="background"></div>
+
+     <!--  <a href="login.php">
+        <button>Connexion</button>
+      </a>  
+    -->
+      <div class ="portfolio">
+        
+          <div class = "text"></div>
+      
+
+      </div>
+      <script>
+        class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#________';
+    this.update = this.update.bind(this);
+  }
+  setText(newText) {
+    const oldText = this.el.innerText;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise(resolve => this.resolve = resolve);
+    this.queue = [];
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || '';
+      const to = newText[i] || '';
+      const start = Math.floor(Math.random() * 40);
+      const end = start + Math.floor(Math.random() * 40);
+      this.queue.push({ from, to, start, end });
+      
+    }
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+
+    return promise;
+  }
+  update() {
+    let output = '';
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.randomChar();
+          this.queue[i].char = char;
+        }
+        output += `<span class="dud">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  }}
+
+
+// ——————————————————————————————————————————————————
+// Example
+// ——————————————————————————————————————————————————
+
+const phrases = [
+'Portfolio',
+'Dorian Lovichi'];
+
+
+const el = document.querySelector('.text');
+const fx = new TextScramble(el);
+
+let counter = 0;
+const next = () => {
+  fx.setText(phrases[counter]).then(() => {
+    setTimeout(next, 4000);
+  });
+  counter = (counter + 1) % phrases.length;
+};
+
+next()
+      </script>
+
+    <!-- <div class="containerr">
+      <p>Bonjour 👋 je suis</p>
+      <section class="animationn">
+        <div class="first"><div>Dorian Lovichi</div></div>
+        <div class="second"><div>Developpeur web</div></div>
+        <div class="third"><div>Etudiant MMI</div></div>
+      </section>
+    </div>
+  -->
+    <div class="profile">
+    <div class ="profileListe">
+      <div id="typedtext"></div>
+      <!--<img src=images/photo.jpg width=300 height=400>--> 
+      
+                </div>
+                
+            </div>
+            <div class="pdfAC">
+              <div class="pdf">
+            <a href="CV.pdf" download>
+              <button>Télécharger le CV</button>
+            </a>
+          </div>
+          <div class="AC">
+          <button onclick="location.href='./ac.html'">Voir les AC</button>
+        </div>
+      </div>
+            <div class="projet">
+            <div id="ancre2"></div>
+              
+              <h1 class="projet">Mes projets graphiques</h1>
+
+              <div class = "dev">
+              <div class=aie>Affiche explicative paghella<img src=images/paghjella.jpg width=300 height=400></div>
+               <div class=aie>Gamme de manteau<img src=images/oeuvreNapoleon.jpg width=300 height=400></div> 
+               <div class=aie>Flyer carnavale<img src=images/flyer.png width=300 height=400></div> 
+               <div class=aie>Étiquette de bière<img src=images/mockup_avant.jpg width=300 height=400></div>           
+              </div>
+              
+      </div>  
+      
+      <button class="voir" onclick="location.href='./graphisme.html'">Voir plus</button>
+
+      
+      <div class="projetDev">
+        <div id="ancre6"></div>
+        
+        <h1 class="projetDev">Mes projets de developpement</h1>
+
+        <div class="devv">
+          <div class="video">Jeu vidéo en 2D<iframe width="450" height="300" src="https://www.youtube.com/embed/PY99z8ftd0U" title="Jeu video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+         <div class=aie>Site de visualisation de données<a href="https://dorianlovichi.github.io/SAE_303_interface/"><img src=images/dataVisu.png width=500 height=300></div></a>
+          <div class=aie>Back-office et base de donnée<br>d'un site e-commerce<a href="https://zigliara.retool.com/embedded/public/dcc95dc2-f17e-45c4-8cf4-fe09c92aa951"><img src=images/retool.png width=500 height=300></div> </a>         
+        </div>
+      <button class="voir" onclick="location.href='./dev.html'">Voir plus</button>
+
+</div>  
+
+<!--<button class="detail" onclick="location.href='./dev.html'">Voir en détail</button>-->
+      
+      <div id="ancre3"></div>
+        <div class="competences">
+          
+            <h1>Compétences</h1>
+        </div>
+            <div class="competencesListe">
+            <div class="grid1">
+                  <div>PhotoShop<img src=images/certified.png width=20 height=20></div>
+                  <div>Visual Studio<img src=images/certified.png width=20 height=20></div>
+                  <div>Illustrator<img src=images/certified.png width=20 height=20></div>
+                  <div>HTML/CSS<img src=images/certified.png width=20 height=20></div> 
+                  <div>PHP<img src=images/certified.png width=20 height=20></div> 
+                  <div>C#<img src=images/certified.png width=20 height=20></div>
+                  <div>PremièrePro<img src=images/certified.png width=20 height=20></div>
+                  <div>MySQL<img src=images/certified.png width=20 height=20></div>
+                  <div>JavaScript<img src=images/certified.png width=20 height=20></div> 
+                  <div>AfterEffect<img src=images/certified.png width=20 height=20></div> 
+                  <div>Langues<img src=images/certified.png width=20 height=20></div> 
+                  <div>InDesign<img src=images/certified.png width=20 height=20></div>
+                  <div>DaVinci<img src=images/certified.png width=20 height=20></div>
+                  <div>Wamp<img src=images/certified.png width=20 height=20></div>
+                  <div>Linux<img src=images/certified.png width=20 height=20></div>
+                  <div>Français<img src=images/certified.png width=20 height=20></div>
+                  <div>Anglais<img src=images/certified.png width=20 height=20></div>
+                  <div>Corse<img src=images/certified.png width=20 height=20></div>
+
+                  
+
+
+                       </div>
+    </div>
+
+    <div id="ancre4"></div>
+    <div class="contact">
+      <h1>Contact</h1>
+    </div>
+      <div class="contactListe">
+        <form action="ajouter_message.php" method="post">
+          <div class="name">
+              <label for="name">Nom :</label>
+              <input type="text" id="name" name="user_name">
+          </div>
+          <div class="mail">
+              <label for="mail">e-mail&nbsp;:</label>
+              <input type="email" id="mail" name="user_mail">
+          </div>
+          <div class="msg">
+              <label for="msg">Message :</label>
+              <textarea id="msg" name="user_message"></textarea>
+              </div>
+    
+
+          <input type="submit" value="Envoyer">
+             
+      </form> 
+      </div>
+     
+        <div class="reseaux">
+        <div id="ancre5"></div>
+        <h1>Réseaux</h1>
+        </div>
+              <div class ="reseauxListe">
+      <a href="https://twitter.com/dorian_lovichi/">
+      <img src="images/twitter.png" height="100px" width="100px" >
+      <p>Twitter</p>
+  </a>
+      <a href="https://www.instagram.com/dorian_lovichi_work/?hl=fr/">
+      <img src="images/instagram.png" height="100px" width="100px"  >
+      <p>Instagram</p>
+  </a>
+      <a href="https://www.linkedin.com/in/dorian-lovichi-08b63b23a/">
+      <img src="images/linkedin.png" height="100px" width="100px" >
+      <p>Linkedin</p>
+  </a>
+  
+      </div>
+            
+  </div> 
+
+
+              <script>
+                // set up text to print, each item in array is new line
+var aText = new Array(
+" Je m'appelle Dorian Lovichi, j'ai 21 ans et je suis actuellement étudiant à l'université de Corse en vue d'obtenir le BUT MMI.", 
+"  J'ai pour ambition de devenir developpeur web. Je suis titulaire du BAC STI2D obtenu au Lycée Lætitia Bonaparte à Ajaccio."
+);
+var iSpeed = 70; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+ 
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+ 
+function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("typedtext");
+ 
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+
+
+typewriter();
+              </script>
+</body>
+</html>
+
+
